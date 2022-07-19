@@ -10,18 +10,18 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-<<<<<<< HEAD
-// child process and child window
-  let child = new BrowserWindow({ parent: win})
-  child.loadFile('child.html')
-   child.show()
-=======
-
->>>>>>> 18d4c2a (8. Auto Reload Main process using Nodemon. & adding a new script in package.json for nodemon.)
-
   
   win.loadFile('index.html')
 //   win.webContents.openDevTools() // open dev tools
 }
 
-app.whenReady().then(createWindow)
+app.on('ready', createWindow) // when the app is ready, create the window
+
+app.on('browser-window-created', () => {console.warn("browser-window-created")})
+//when a browser window is created, log a message to the console
+
+app.on('browser-window-focus', () => {console.warn("browser-window-focus")})
+//when a browser window is focused, log a message to the console
+
+app.on('before-quit', () => {console.warn("App is about to exit")})
+//when the app is about to quit, log a message to the console
