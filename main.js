@@ -10,10 +10,14 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+<<<<<<< HEAD
 // child process and child window
   let child = new BrowserWindow({ parent: win})
   child.loadFile('child.html')
    child.show()
+=======
+
+>>>>>>> 18d4c2a (8. Auto Reload Main process using Nodemon. & adding a new script in package.json for nodemon.)
 
   
   win.loadFile('index.html')
