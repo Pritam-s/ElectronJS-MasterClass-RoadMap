@@ -23,6 +23,22 @@ function createWindow() {
 
   win.loadFile('index.html')
   //   win.webContents.openDevTools() // open dev tools
+
+  
+  let wc = win.webContents; // web content
+  wc.on('dom-ready', () => { 
+    console.log("Our app dom is ready")
+  }) //triggers when our dom is ready
+
+  wc.on('devtools-opened', () => {
+    console.log("Devtools is opened") 
+  } ) //triggers when Devtools is opened
+
+  wc.on('did-create-window', ()=>{
+    console.log('New window is opened now')
+  }) //triggers when New windows is opened
+  
+
   mainWindowState.manage(win); // manage window state
 }
 
