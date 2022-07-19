@@ -2311,3 +2311,8 @@ node_modules/undefsafe/package.json
 node_modules/undefsafe/README.md
 node_modules/undefsafe/.github/workflows/release.yml
 node_modules/undefsafe/lib/undefsafe.js
+node_modules/electron-window-state/index.d.ts
+node_modules/electron-window-state/index.js
+node_modules/electron-window-state/license
+node_modules/electron-window-state/package.json
+node_modules/electron-window-state/readme.md
