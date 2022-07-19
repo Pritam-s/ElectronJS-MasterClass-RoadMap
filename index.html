@@ -8,10 +8,15 @@
     ElectronJS MasterClass RoadMap
     </title>
 </head>
-<body>
+<body style="user-select:none; -webkit-app-region:drag; ">
+    <!-- "user-select:none" disables the user to select and copy any data-->
+     <!-- "-webkit-app-region:drag"  allows the user to drag the window by clicking any text content and dragging the window  -->
     <h2>
         Hello World!
     </h2>
     <a href="child.html">Go to child page</a>
+
+    <input type="range" name="test" id="test" style="-webkit-app-region:no-drag">
+    <!-- Here the range input gets selected and when we drag it, the entire window gets dragged. and hence, to stop this behavior we have to apply "no-drag" property here for the input type range -->
 </body>
 </html>
