@@ -13,8 +13,9 @@ function createWindow () {
 // child process and child window
   let child = new BrowserWindow({ parent: win})
   child.loadFile('child.html')
-  child.show()
+   child.show()
 
+  
   win.loadFile('index.html')
 //   win.webContents.openDevTools() // open dev tools
 }
