@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require('electron')
+const { app, BrowserWindow, globalShortcut, dialog } = require('electron')
 const path = require('path')
 const windowStateKeeper = require('electron-window-state');
 let win;
@@ -48,6 +48,20 @@ function createWindow() {
     win.loadFile('child.html')
     console.log('The shortcut for navigating to the file child.html is triggered')
   })
+
+
+  //13. dialog
+  win.webContents.on('did-finish-load', ()=>{
+    dialog.showOpenDialog({
+      buttonLabel:"Select your image buddy" //gives ability to change the name of the button on the dialog.
+    });
+  })
+
+  globalShortcut.register('Control+f', ()=>{
+    dialog.showOpenDialog({
+      buttonLabel:"Select your file mate"
+    })
+  }) //triggers a file select dialog box when a shortcut key CTRL+f is pressed.
 
 
   mainWindowState.manage(win); // manage window state
