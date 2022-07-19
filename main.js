@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, globalShortcut } = require('electron')
 const path = require('path')
 const windowStateKeeper = require('electron-window-state');
 let win;
@@ -24,7 +24,7 @@ function createWindow() {
   win.loadFile('index.html')
   //   win.webContents.openDevTools() // open dev tools
 
-  
+  // 11. webContents
   let wc = win.webContents; // web content
   wc.on('dom-ready', () => { 
     console.log("Our app dom is ready")
@@ -38,6 +38,17 @@ function createWindow() {
     console.log('New window is opened now')
   }) //triggers when New windows is opened
   
+
+  //12. Global Shortcuts
+  globalShortcut.register("Shift+k", () => {
+    console.log('Key combination shift+k is pressed')
+  })
+
+  globalShortcut.register('shift+c', ()=>{
+    win.loadFile('child.html')
+    console.log('The shortcut for navigating to the file child.html is triggered')
+  })
+
 
   mainWindowState.manage(win); // manage window state
 }
