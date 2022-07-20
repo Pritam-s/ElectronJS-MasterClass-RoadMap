@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, dialog } = require('electron')
+const { app, BrowserWindow, globalShortcut, dialog, Tray } = require('electron')
 const path = require('path')
 const windowStateKeeper = require('electron-window-state');
 let win;
@@ -39,29 +39,9 @@ function createWindow() {
   }) //triggers when New windows is opened
   
 
-  //12. Global Shortcuts
-  globalShortcut.register("Shift+k", () => {
-    console.log('Key combination shift+k is pressed')
-  })
-
-  globalShortcut.register('shift+c', ()=>{
-    win.loadFile('child.html')
-    console.log('The shortcut for navigating to the file child.html is triggered')
-  })
-
-
-  //13. dialog
-  win.webContents.on('did-finish-load', ()=>{
-    dialog.showOpenDialog({
-      buttonLabel:"Select your image buddy" //gives ability to change the name of the button on the dialog.
-    });
-  })
-
-  globalShortcut.register('Control+f', ()=>{
-    dialog.showOpenDialog({
-      buttonLabel:"Select your file mate"
-    })
-  }) //triggers a file select dialog box when a shortcut key CTRL+f is pressed.
+  //Tray
+  tray=new Tray('warning-sign')
+  tray.setToolTip('This is my new application')
 
 
   mainWindowState.manage(win); // manage window state
